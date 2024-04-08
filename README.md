@@ -1,87 +1,34 @@
-# 1. html에 script 써보기
+# 2. variable(변수)
+
+- 데이터가 컴퓨터 메모리에 저장되는 주소
+
+## 2.1. 변수 선언
+
+- var, let, const 키워드
+<!-- var는 거의 안씀 const를 써보고 오류나면 let을 써보쟝 -->
+- const를 주로 사용하고 안되면 let으로 바꾸자
 
 ```js
-<!DOCTYPE html>
-<html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>자바스크립트 스터디</title>
-  </head>
-  <body>
-    <p id="show"></p>
-    <script>
-      document.getElementById("show").innerHTML = "안녕하세요.";
-    </script>
-  </body>
-</html>
+let keyword = "키워드 let으로 변수 name을 선언";
+console.log(keyword);
+// 필요에 따라 값을 재할당 할 수 있다.
+name = "변수 name에 홍길동 저장 name은 홍길동 값을 가짐";
+console.log(keyword);
 ```
 
-## 1.1. 데이터 출력
+## 2.1.2. 변수 이름 짓기
 
-- innerHTML : 브라우저 안에 있는 HTML 요소에 데이터 출력
-- document.write() : 브라우저에 간단한 데이터 출력
-- alert() : 알림창에 데이터 출력
-- console.log() : 브라우저 콘솔에 데이터 출력
-
-### 1.1.1. innerHTML
-
-### 1.1.2. document.write()
+- 변수 이름에는 영어, 숫자, 밑줄, $ 사용가능
+- 숫자로는 시작하면 안된다.
+  - 예시로 키워드1, 키워드2 는 가능하지만 1키워드, 2키워드는 안된다
+- 대소문자 구분
+- 일반적으로 카멜케이스를 사용한다.
 
 ```js
-<!DOCTYPE html>
-<html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>자바스크립트 스터디</title>
-  </head>
-  <body>
-    <script>
-      document.write(10 + 20);
-    </script>
-  </body>
-</html>
+예시로;
+const a = 5;
+const font1 = "돋음";
+const _price = 20000;
+const maxwidth = 600;
+const max_width = 800;
 ```
-
-### 1.1.3. alear()
-
-```js
-<!DOCTYPE html>
-<html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>자바스크립트 스터디</title>
-  </head>
-  <body>
-    <script>
-      alert(10 + 20);
-    </script>
-  </body>
-</html>
-```
-
-안좋은예
-
-### 1.1.4. console.log()
-
-- 브라우저 개발자 도구 console에 출력
-
-```js
-<!DOCTYPE html>
-<html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>자바스크립트 스터디</title>
-  </head>
-  <body>
-    <script>
-      console.log(10 + 20);
-    </script>
-  </body>
-</html>
-```
-
-- f12 콘솔창에서 몇번째줄에 작성했는지 확인가능
