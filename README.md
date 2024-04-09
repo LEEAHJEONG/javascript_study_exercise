@@ -54,3 +54,20 @@ document.write(text);
 ```
 
 ## 4.3. 비교연산자
+
+```js
+console.log(a == b); // true
+console.log(a === b); // false
+console.log(a != b); // false a랑 b랑 다르냐(같지않다)
+console.log(a !== b); // true a랑 b랑 데이터타입도 다르냐(같지않다)
+console.log(a > c); // false
+console.log(a < c); // true
+console.log(a >= c); // false
+console.log(a <= c); // true
+```
+
+## 4.4. 논리 연산자
+
+- && : `AND` 두 조건이 모두 모두 true일 경우에만 최종 결과 true
+- || : `OR` 두 조건 중 하나만 true가 되어도 최종결과 true
+- ! : `NOT` 결과가 true인 경우 false, 반대로 false 인 경우 true
