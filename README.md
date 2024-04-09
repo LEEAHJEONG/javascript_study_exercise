@@ -9,7 +9,7 @@
 - object : 객체
 - symbol
 
-## 3.1. 숫자 number
+## 숫자 number
 
 ```js
 const a = 3; //정수(integer)-소수점없는 숫자 1,2,3....
@@ -23,7 +23,7 @@ console.log(c);
 console.log(d);
 ```
 
-## 3.2. Bigint (잘 사용안함.)
+## Bigint (잘 사용안함.)
 
 - 정수는 15개의 숫자, 15자리 정수까지 나타낼 수 있다.
 - 그 이상의 정수를 사용하려면 Bigint 형 을 사용해야 한다.
@@ -35,7 +35,7 @@ const e = 9999999999999987n;
 console.log(e);
 ```
 
-## 3.3. 문자열 string
+## 문자열 string
 
 ```js
 // 문자열
