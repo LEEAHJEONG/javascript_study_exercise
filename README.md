@@ -5,7 +5,9 @@
 - 참, 거짓에 따라 특정 코드의 실행을
 
 ```txt
-if(조건식)
+if(조건식){
+
+}
 ```
 
 ```js
@@ -73,7 +75,12 @@ console.log(result);
 ```txt
 if(조건식) {
   문장;
-} else??
+} else if(조건식) {
+  문장;
+}
+else {
+  문장
+}
 ```
 
 ```js
@@ -83,7 +90,7 @@ let result = "";
 
 if (scroe >= 70) {
   result = "합격";
-} else if (어쩌고) {
+} else if (조건식) {
   result = "불합격";
 } else {
   result = "불합격";
@@ -94,7 +101,7 @@ console.log(result);
 
 # 7. switch 문
 
-- if문과 거의 같은 방식으로 동장
+- if문과 거의 같은 방식으로 동작
 
 ```js
 // 괄호 안에 있는 변수의 값에 따라
