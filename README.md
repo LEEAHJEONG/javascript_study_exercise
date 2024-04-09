@@ -57,7 +57,7 @@ let text3 = `이름: ${username}, 나이: ${age}`;
 console.log(text3);
 ```
 
-## boolean
+## 3.4. boolean
 
 ```js
 let x = 5 > 3; //true
@@ -67,15 +67,9 @@ console.log(x);
 console.log(y);
 ```
 
-## undefined
+## 3.5. undefined, null (빈 문자열)
 
-```js
-// x에 undefined가 저장되었다. 라는 뜻 ?????????
-let x;
-console.log(x);
-```
-
-## undefined, null (빈 문자열)
+- 공간은 존재하지만 내용(값)은 없는 것.
 
 ```js
 let x;
@@ -87,7 +81,7 @@ console.log(typeof y);
 // string은 무엇????????
 ```
 
-## 객체 object
+## 3.6. 객체 object
 
 ```js
 // 객체는 중괄호 사용
@@ -104,7 +98,40 @@ console.log(member.name);
 console.log(member.age);
 ```
 
-## 심볼 symbol
+## 3.7. 심볼 symbol
+
+: 절대로 중복되지 않는다. 절대값..
 
 - number, string, boolean 과 같은 원시데이터를
 - 유일한 식별자로서 객체의 속성을 추가하는데 사용한다.
+
+```js
+const member = {
+  // 키: "값"
+  name: "홍길동",
+  age: 20,
+};
+// 여기에 아이디를 추가로 하고싶다면,
+// symbol()로 심볼 id 생성 (Symbol `S는 대문자로`)
+let id = Symbol("id");
+// 객체 member의 키 id에 문자열 "kdhong" 저장
+// 심볼의 id가 객체의 키로 사용되면 심볼 데이터형은
+// 유일한 식별자이기 때문에 객체의 키 이름이 겹쳐서 충돌하는 경우를 방지한다.
+member.id = "kdhong";
+console.log(member.id);
+console.log(id);
+
+// 객체 member에서 심볼 id가 키로 사용된 요소는
+// member[id]에 의해 접근 할 수 있다.
+// 심볼 id와 새롭게 생성된 Symbol("id")는 서로 다르다.
+console.log(id === Symbol("id"));
+```
+
+## 3.8. 배열 array
+
+- index는 0부터 시작
+
+```js
+const car = ["현대", "기아", "벤츠", "BMW"];
+console.log(car[0]);
+```
