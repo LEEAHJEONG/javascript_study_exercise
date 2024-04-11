@@ -65,7 +65,7 @@ document.write(text);
 
 ## 8.2 for in 문
 
-- 객체의 요소들을 반복해서 읽어올 때 for in
+- 객체의 요소들을 반복해서 읽어올 때 사용된다.
 
 ```js
 // 객체 내 각 요소들을 반복해서 읽어와
@@ -98,5 +98,36 @@ const scores = [88, 75, 95, 90];
 
 for (let score of scores) {
   console.log(score);
+}
+```
+
+## 8.4. 이중 for 문
+
+- 한 번의 루프 안에 다른 루프가 중첩되어 있는 것.
+  : 한 번의 루프
+
+```js
+// 이중 for문
+// 구구단
+// 2단부터 만들어보자
+let x = 2;
+let result;
+
+for (let y = 1; y <= 9; y++) {
+  result = x * y;
+  console.log(result);
+}
+```
+
+: 한 번의 루프 안에 다른 루프가 중첩
+
+```js
+let resultAll;
+
+for (let x = 2; x <= 9; x++) {
+  for (let y = 1; y <= 9; y++) {
+    resultAll = x * y;
+    console.log(resultAll);
+  }
 }
 ```
