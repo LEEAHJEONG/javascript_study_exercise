@@ -1,133 +1,43 @@
-# 8. for 문
+# 9. while 문
 
-## 8.1 for 문
+- 조건이 참(true)인 동안 문장, ...을 반복 실행
+- 거짓(False)이 될 때 까지 코드를 반복 실행된다. 거짓이 되면 루프를 빠져나간다.
+- 반복 횟수를 명확히 알 수 없는 경우에 주로 사용된다.
 
-- 특정 코드를 반복해서 실행 for, while, do while
+## 9.1 while문의 기본구조
 
-```txt
-for(초기값; 조건식; 증가_감소;){
+```js
+while (조건식){
   문장;
   ...
 }
 ```
 
 ```js
-// for의 조건식이 참인 동안 문장들을 반복실행
-// 1. i의 값을 1로 초기화
-// 2. 조건식 1 <= 3 참, 1을 출력함
-// 3. i의 값이 1 증가
-// 4. i의 값이 2가 됨
-// 5. 조건식 2 <=3 참, 2를 출력함
-// 6. i의 값이 1 증가
-// 7. i의 값이 3이 됨
-// 8. 조건식 3 <= 3 참, 3 출력
-// 9. i의 값이 1 증가
-// 10. i의 값이 4가 됨
-// 11. 조건식 4 <= 3 거짓, for 루프르르 빠져나간다.
+// 안녕 다섯 번 출력하기
+let i = 1;
 
-for (let i = 1; i <= 3; i++) {
-  console.log(i);
+while (i <= 5) {
+  console.log("안녕");
+  i++;
 }
 ```
 
-```js
-// for 문을 이용해서 1 ~ 10 정수의 합계를 구하는 프로그램을 만들어보자.
-let sum = 0;
-// i가 1에서 100까지 값을 가지는 동안
-for (let i = 1; i <= 100; i++) {
-  // 문장이 반복 실행되며, 변수 sum에 1 ~ 100의 누적 합계를 저장
-  sum = sum + i;
-}
-// sum의 값을 출력
-console.log(sum);
-// for 문을 이용해서 1 ~ 10 정수의 합계를 구하는 프로그램을 만들어보자.
-let sum = 0;
-// i가 1에서 100까지 값을 가지는 동안
-for (let i = 1; i <= 100; i++) {
-  // 문장이 반복 실행되며, 변수 sum에 1 ~ 100의 누적 합계를 저장
-  sum = sum + i;
-}
-// sum의 값ㅇ르 출력
-console.log(sum);
+## 9.2 do while 문 기본구조
 
-// for문, 배열, 템플릿 문자열 이용하여 웹페이지 글자에 색을 설정해보자.
-const color = ["red", "green", "blue", "pink"];
-let text = "";
-
-// i 는 0, 1, 2, 3의 값을 가지는 동안
-for (let i = 0; i <= 3; i++) {
-  text += `<span style="color: ${color[i]}">안녕</span>`;
-}
-
-console.log(text);
-document.write(text);
-```
-
-## 8.2 for in 문
-
-- 객체의 요소들을 반복해서 읽어올 때 사용된다.
+- 자주 사용하지 않음..
 
 ```js
-// 객체 내 각 요소들을 반복해서 읽어와
-// 그 키를 변수에 저장하는 식으로
-// 반복 루프가 진행
-for(변수 in 객체){
+do {
   문장;
   ...
-}
+}while(조건식)
 ```
 
 ```js
-const member = { id: "kdhong", username: "홍길동", age: 30 };
+let x = -10;
 
-// 객체의 요소 수 만큼, 객체의 갯수는 세개. 즉 세번 반복 루프 진행
-for (let x in member) {
-  console.log(member[x]);
-}
-```
-
-## 8.3 for of 문
-
-```js
-for (변수 of 배열) {
-}
-```
-
-```js
-const scores = [88, 75, 95, 90];
-
-for (let score of scores) {
-  console.log(score);
-}
-```
-
-## 8.4. 이중 for 문
-
-- 한 번의 루프 안에 다른 루프가 중첩되어 있는 것.
-  : 한 번의 루프
-
-```js
-// 이중 for문
-// 구구단
-// 2단부터 만들어보자
-let x = 2;
-let result;
-
-for (let y = 1; y <= 9; y++) {
-  result = x * y;
-  console.log(result);
-}
-```
-
-: 한 번의 루프 안에 다른 루프가 중첩
-
-```js
-let resultAll;
-
-for (let x = 2; x <= 9; x++) {
-  for (let y = 1; y <= 9; y++) {
-    resultAll = x * y;
-    console.log(resultAll);
-  }
-}
+do {
+  console.log("안녕??");
+} while (x > 0);
 ```
