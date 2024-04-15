@@ -126,3 +126,60 @@ console.log(result);
 ```
 
 - **find(함수)** 메서드: 특정 요소를 찾는 조건을 콜백함수를 통해 전달하여 조건에 해당하는 첫 번째 요소 값을 반환
+
+```js
+const scores = [90, 80, 100, 50, 60];
+
+// scores.find() 메서드에서 매개변수로 (score --> 배열)
+// function(score){return score >= 90} 과 같은 콜백함수 사용
+// 자바스크립트에서는 함수의 매개변수로 함수가 사용될 수 있다.
+// 다른 함수의 매개변수로 전달되는 함수를 콜백 함수라고 한다.
+// scores.find() 메서드에서는 배열 scores의 각 요소에 대해 콜백함수를 실행한다.
+// 배열의 요소를 순회하면서 콜백 함수의 조건에 맞는 첫 번째 요소 값을 반환
+// 콜백 함수에 사용된 score는 배열의 각 요소 값을 가지게 됨.
+// scores.find() 메서드는 score, 즉 배열의 요소 값이 90 이상인 경우에 요소를 반환한다.
+
+let arr;
+// arr = scores.find(function (score) {
+//   return score >= 80;
+// }); 아래와 같은코드이다. 함축해서 아래처럼 사용가능.
+arr = scores.find((score) => score >= 90);
+console.log(arr);
+```
+
+- **forEach()** 메서드: 배열의 각 요소에 대해 매개변수로 설정된 함수를 실행
+
+```js
+const animals = ["사자", "호랑이", "사슴", "펭귄"];
+
+let text = "";
+
+// 매개 변수로 설정된 fnc 함수를 배열 animals 의 각 요소에 대해 실행
+animals.forEach(fnc);
+
+// fnc 함수의 매개변수 item, index 는
+// 각각 animals 의 요소 값과 인덱스를 의미
+function fnc(item, index) {
+  text += `${index} ${item} <br>`;
+}
+
+document.getElementById("show").innerHTML = text;
+```
+
+- **map()** 메서드: 배열의 각 요소에 대해 매개변수로 설정된 함수를 실행하여 얻어진 요소들로 구성된 **새로운** 배열을 반환
+
+```js
+const numbers = [1, 2, 3, 4, 5];
+
+// map()메서드는 forEach() 세거드와 달리 매개변수로 사용되는 함수에서
+// 값을 반환하는 return이 존재
+// ma
+
+// let arr = numbers.map(function (num) {
+//   return num * num;
+// }); --> 함축하면 아래 코드가 됨.
+let arr = numbers.map((num) => num * num);
+console.log(arr);
+
+document.getElementById("show").innerHTML = arr;
+```

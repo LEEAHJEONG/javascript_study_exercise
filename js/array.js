@@ -1,6 +1,14 @@
-const animals = ["사자", "호랑이", "사슴", "펭귄", "여우", "고양이"];
+const numbers = [1, 2, 3, 4, 5];
 
-// 인덱스 1에서 4를 포함하지 않는 4 사이에 있는 요소
-const result = animals.slice(1, 4);
+// map()메서드는 forEach() 세거드와 달리 매개변수로 사용되는 함수에서
+// 값을 반환하는 return이 존재
+// ma
 
-console.log(result);
+// let arr = numbers.map(function (num) {
+//   return num * num;
+// }); --> 함축하면 아래 코드가 됨.
+let arr = numbers.map((num) => num * num);
+// console.log(num);
+console.log(arr);
+
+document.getElementById("show").innerHTML = arr;
