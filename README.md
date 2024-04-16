@@ -1,185 +1,78 @@
-# 13. 배열
+# 14. 문서 객체 모델 DOM
 
-## 13.1. 배열이란
+- Document Object Model의 약자
+- HTML 문서의 구조화 된 표현이다.
+- DOM 구조에 접근하여 HTML 문서의 구조, 스타일, 내용 등을 변경
+- DOM은 웹 페이지, 즉 HTML 분서에 접근하여 문서를 읽고 조작할 수 있는 API(application Programming Interface)를 제공하는 인터페이스라고 할 수 있다.
+- DOM은 자바스크립트 언어와는 독립적인 구조를 가지고 있다.
 
-- 여러 값을 하나의 변수에 저장할 수 있게 해주는 특별한 변수 array
+## 14.1. DOM의 구조
 
-### 13.1.1. 배열의 생성
+- HTMl요소(element), 속성(attribute), 내용(content) 등으로 구성된 트리구조 (DOM트리)
+- 웹 페이지 요소들과 요소들에 관련된 정보를 트리 형태로 가지고 있다.
+- 모든 HTML 요소들은 객체로 정의된다.
+- 자바스크립트에서는 DOM에서 제공하는 메서드(method)와 프로퍼티(property)를 통하여 HTML 요소들에 접근하거나 요소들을 수정할 수 있다.
+
+## 14.2. DOM 메서드와 프로퍼티
 
 ```js
-const fruits = ["사과", "딸기", "참외"];
+// 웹 페이지에 있는 <p> 요소의 내용을 변경
+// Document 객체의 getElementById("show")는 웹 페이지에서 아이디 "show"
+// 즉, <p> 요소를 가져온다.
+// innerHTML 에 "안녕?"을 설정함으로써
+// 단락 <p> 의 내용을 "안녕?" 으로 변경하게 된다.
+// DOM method: getElementById()
+// DOM property: innerHTML
 
-let text = "";
-text += fruits;
-text += fruits[0];
-text += fruits[1];
-text += fruits[2];
+document.getElementById("show").innerHTML = "안녕?";
 
-console.log(text);
-
-// 추가하기
-const fruits1 = new Array("오렌지", "키위", "토마토", "사과");
-console.log(fruits1);
+// 문서가 로드될 때 글 제목 요소 h1를 생성하는 예
+// 1. window 객체의 onload() 메서드는
+// 자바스크립트 문서가 로드될 때 자동으로 호출된다.
+window.onload = function () {
+  // 2. h1 요소를 생성하여 변수 element에 저장
+  let element = document.createElement("h1");
+  // 3. "글 제목" 이란 텍스트 노드를 생성하여 변수 text에 저장
+  let text = document.createTextNode("글 제목");
+  // 4. element 요소가 가리키는 h1 요소에 text, 즉 "글 제목"을 추가
+  element.appendChild(text);
+  // 5. Document 객체의 body 요소에 element를 추가
+  document.body.appendChild(element);
+};
 ```
 
-### 13.1.2. 배열요소의 메서드들
+## 14.3. Document 객체
 
-- join() 메서드는 배열 배열을 문자열로 변환하는데 사용
+- DOM의 DOcument 객체는 웹 페이지에 있는 모든 객체들의 소유주
+- 웹 페이지에 있는 요소들에 접근하기 위해 Document 객체로부터 시작해서 해당 요소를 찾아간다.
 
-```js
-const animals = ["사자", "호랑이", "사슴", "펭귄"];
+```html
+<!-- Document -->
+<!DOCTYPE html>
+<!-- 요소: html, 속성: lang -->
+<html lang="ko">
+  <!-- 요소: head -->
+  <head>
+    <!-- 요소: meta, 속성: charset -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- 요소: title, 텍스트: 자바스크립트 스터디 -->
+    <title>자바스크립트 스터디</title>
+  </head>
+  <body>
+    <form name="form1">
+      이름: <input type="text" name="name" /> <br />
+      <button onclick="get_name()">버튼</button>
+    </form>
 
-let str1 = animals.join();
-let str2 = animals.join("/");
-
-console.log(str1);
-console.log(str2);
+    <script src="js/dom.js"></script>
+  </body>
+</html>
 ```
 
-- push() 메서드: 배열의 끝에 새로운 요소를 추가하는데 사용
-
 ```js
-const animals = ["사자", "호랑이", "사슴", "펭귄"];
-
-// 추가하기
-let x = animals.push("강아지");
-
-let text = "";
-text = animals;
-
-console.log(text);
-```
-
-- pop() 메서드 - 배열의 끝에 마지막 요소를 삭제하는데 사용
-
-```js
-const animals = ["사자", "호랑이", "사슴", "펭귄"];
-
-let x = animals.pop();
-
-let text = "";
-text = animals;
-
-console.log(text);
-```
-
-- shift() 메서드: 배열의 첫 요소를 삭제
-
-```js
-const animals = ["사자", "호랑이", "사슴", "펭귄"];
-
-let x = animals.shift();
-
-let text = "";
-text = animals;
-
-console.log(text);
-```
-
-- **splice()** 메서드: 배열의 요소를 추가하거나 삭제할 때 사용
-  - 가장 많이 사용된다.
-    :이게뭐지....?
-
-```js
-const animals = ["사자", "호랑이", "사슴", "펭귄", "여우", "고양이"];
-
-let text = "";
-let arr;
-// 인덱스(순서번호 0,1,2,...)
-// 2인 요소 "사슴" 부터 3개의 요소를 삭제하고 " 개구리 삽입"
-arr = animals.splice(2, 3, "개구리");
-
-console.log(animals);
-console.log(arr);
-```
-
-- **indexof()** 메서드: 배열에서 특정 문자열의 위치, 즉 인덱스 값을 반환
-
-```js
-const animals = ["사자", "호랑이", "사슴", "펭귄", "여우", "고양이"];
-
-let index1 = animals.indexOf("사슴");
-
-console.log(index1);
-```
-
-- **inclusdes()** 메서드: 특정 요소의 존재 여부를 파악
-  : true, false 로 나타남
-
-```js
-const animals = ["사자", "호랑이", "사슴", "펭귄", "여우", "고양이"];
-
-const result = animals.includes("악어");
-
-console.log(result); // false
-```
-
-- **slice()** 메서드: 인덱스를 이용하여 특정 요소를 추출
-
-```js
-const animals = ["사자", "호랑이", "사슴", "펭귄", "여우", "고양이"];
-
-// 인덱스 1에서 4를 포함하지 않는 4 사이에 있는 요소
-const result = animals.slice(1, 4);
-
-console.log(result);
-```
-
-- **find(함수)** 메서드: 특정 요소를 찾는 조건을 콜백함수를 통해 전달하여 조건에 해당하는 첫 번째 요소 값을 반환
-
-```js
-const scores = [90, 80, 100, 50, 60];
-
-// scores.find() 메서드에서 매개변수로 (score --> 배열)
-// function(score){return score >= 90} 과 같은 콜백함수 사용
-// 자바스크립트에서는 함수의 매개변수로 함수가 사용될 수 있다.
-// 다른 함수의 매개변수로 전달되는 함수를 콜백 함수라고 한다.
-// scores.find() 메서드에서는 배열 scores의 각 요소에 대해 콜백함수를 실행한다.
-// 배열의 요소를 순회하면서 콜백 함수의 조건에 맞는 첫 번째 요소 값을 반환
-// 콜백 함수에 사용된 score는 배열의 각 요소 값을 가지게 됨.
-// scores.find() 메서드는 score, 즉 배열의 요소 값이 90 이상인 경우에 요소를 반환한다.
-
-let arr;
-// arr = scores.find(function (score) {
-//   return score >= 80;
-// }); 아래와 같은코드이다. 함축해서 아래처럼 사용가능.
-arr = scores.find((score) => score >= 90);
-console.log(arr);
-```
-
-- **forEach()** 메서드: 배열의 각 요소에 대해 매개변수로 설정된 함수를 실행
-
-```js
-const animals = ["사자", "호랑이", "사슴", "펭귄"];
-
-let text = "";
-
-// 매개 변수로 설정된 fnc 함수를 배열 animals 의 각 요소에 대해 실행
-animals.forEach(fnc);
-
-// fnc 함수의 매개변수 item, index 는
-// 각각 animals 의 요소 값과 인덱스를 의미
-function fnc(item, index) {
-  text += `${index} ${item} <br>`;
+function get_name() {
+  let text = document.form1.name.value;
+  alert(text);
 }
-
-document.getElementById("show").innerHTML = text;
-```
-
-- **map()** 메서드: 배열의 각 요소에 대해 매개변수로 설정된 함수를 실행하여 얻어진 요소들로 구성된 **새로운** 배열을 반환
-
-```js
-const numbers = [1, 2, 3, 4, 5];
-
-// map()메서드는 forEach() 세거드와 달리 매개변수로 사용되는 함수에서
-// 값을 반환하는 return이 존재
-// ma
-
-// let arr = numbers.map(function (num) {
-//   return num * num;
-// }); --> 함축하면 아래 코드가 됨.
-let arr = numbers.map((num) => num * num);
-console.log(arr);
-
-document.getElementById("show").innerHTML = arr;
 ```
