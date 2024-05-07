@@ -1,8 +1,4 @@
-let text = "";
-
-const btn = document.getElementById("btn");
-
-btn.addEventListener("click", function () {
-  text += "안녕하세요<br>";
+function showCoord(e) {
+  let text = "좌표: (" + e.clientX + "," + e.clientY + ")";
   document.getElementById("show").innerHTML = text;
-});
+}
