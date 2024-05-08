@@ -226,3 +226,81 @@ function showCoord(e) {
   document.getElementById("show").innerHTML = text;
 }
 ```
+
+### 15.3 포커스 이벤트
+
+- onfocus : 요소가 포커스를 얻었을 때
+- onblur : 요소가 포커스를 잃었을 때
+- 텍스트나 비밀번호 입력창 안에 마우스를 클릭하면 마우스 커서가 깜빡인다.(포커스를 얻었다.)
+- 반대로 입력창 외부를 클릭하면 포커스를 잃게 된다.
+
+```html
+<body>
+  <input type="text" id="uid" />
+  <input
+    type="password"
+    id="upw"
+    onfocus="changeBgColor3()"
+    onblur="changeBgColor4()"
+  />
+
+  <script src="js/event.js"></script>
+</body>
+```
+
+```js
+const userId = document.getElementById("uid");
+const userPw = document.getElementById("upw");
+
+function changeBgColor1() {
+  userId.style.backgroundColor = "yellow";
+}
+function changeBgColor2() {
+  userId.style.backgroundColor = "gray";
+}
+
+userId.onfocus = function () {
+  changeBgColor1();
+};
+
+userId.onblur = function () {
+  changeBgColor2();
+};
+
+function changeBgColor3() {
+  userPw.style.backgroundColor = "yellow";
+}
+function changeBgColor4() {
+  userPw.style.backgroundColor = "gray";
+}
+```
+
+## 15.4 기타 이벤트
+
+### 15.4.1 onchange 이벤트
+
+```html
+<body>
+  <label>
+    사이즈:
+    <select name="size" id="sz">
+      <option value="">선택</option>
+      <option value="s">S</option>
+      <option value="m">M</option>
+      <option value="l">L</option>
+      <option value="xl">XL</option>
+    </select>
+  </label>
+  <p id="show"></p>
+  <script src="js/event.js"></script>
+</body>
+```
+
+```js
+const sel = document.getElementById("sz");
+sel.addEventListener("change", function (e) {
+  document.getElementById(
+    "show"
+  ).innerHTML = `선택한 사이즈는 ${e.target.value}입니다.`;
+});
+```
